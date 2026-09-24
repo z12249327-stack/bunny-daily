@@ -2,669 +2,170 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F48B94">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="وردة المخمل">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F48B94'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
 <title>وردة المخمل | Bunny daily</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --pink:#FDF0F2;
-  --pink-soft:#FBE3E7;
-  --coral:#F48B94;
-  --coral-deep:#E06B77;
-  --ivory:#FFFDF7;
-  --text:#5A3A41;
-  --text-soft:#9A6B74;
-  --white:#ffffff;
-  --shadow:0 10px 30px rgba(244,139,148,.18);
-  --petal:58% 42% 55% 45% / 52% 56% 44% 48%;
-  --petal2:45% 55% 48% 52% / 55% 45% 55% 45%;
-  --petal3:52% 48% 42% 58% / 48% 52% 48% 52%;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Tajawal',sans-serif;
-  background:var(--ivory);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-}
-body::before{
-  content:"";
-  position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 500px 300px at 90% -5%, rgba(244,139,148,.14), transparent 70%),
-    radial-gradient(ellipse 420px 260px at 5% 15%, rgba(253,240,242,.9), transparent 70%),
-    radial-gradient(ellipse 600px 380px at 50% 110%, rgba(244,139,148,.10), transparent 70%);
-}
-::selection{background:var(--coral);color:#fff}
-
-/* ---------- Header ---------- */
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,253,247,.85);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(244,139,148,.18);
-}
-.header-inner{
-  max-width:1180px;margin:0 auto;padding:14px 24px;
-  display:flex;align-items:center;gap:16px;
-}
-.logo{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
-.logo-mark{
-  width:46px;height:46px;border-radius:var(--petal);
-  background:linear-gradient(135deg,var(--coral),var(--coral-deep));
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:var(--shadow);flex-shrink:0;
-}
-.logo h1{font-size:21px;font-weight:800;color:var(--text);line-height:1.1}
-.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--coral-deep);letter-spacing:.4px}
-nav{margin-inline-start:auto;display:flex;gap:8px;background:var(--pink);padding:5px;border-radius:999px}
-nav button{
-  border:none;background:transparent;font-family:inherit;font-size:14.5px;font-weight:700;
-  color:var(--text-soft);padding:9px 22px;border-radius:999px;cursor:pointer;
-  transition:all .3s ease;
-}
-nav button.active{background:var(--white);color:var(--coral-deep);box-shadow:0 4px 12px rgba(224,107,119,.22)}
-.cart-btn{
-  position:relative;border:none;cursor:pointer;
-  width:46px;height:46px;border-radius:var(--petal2);
-  background:var(--white);border:1.5px solid rgba(244,139,148,.35);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .25s ease, box-shadow .25s ease;color:var(--coral-deep);
-}
-.cart-btn:hover{transform:translateY(-2px) rotate(-3deg);box-shadow:var(--shadow)}
-.cart-count{
-  position:absolute;top:-6px;left:-6px;min-width:21px;height:21px;padding:0 5px;
-  background:var(--coral-deep);color:#fff;font-size:11.5px;font-weight:800;
-  border-radius:999px;display:flex;align-items:center;justify-content:center;
-  border:2px solid var(--ivory);transform:scale(0);transition:transform .3s cubic-bezier(.34,1.56,.64,1);
-}
-.cart-count.show{transform:scale(1)}
-
-main{max-width:1180px;margin:0 auto;padding:32px 24px 90px;position:relative;z-index:1}
-section.page{display:none;animation:fadeUp .45s ease}
-section.page.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-/* ---------- Hero ---------- */
-.hero{
-  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
-  background:linear-gradient(120deg,var(--pink) 0%,#fff 70%);
-  border:1px solid rgba(244,139,148,.2);
-  border-radius:42px;padding:44px 48px;margin-bottom:36px;position:relative;overflow:hidden;
-}
-.hero::after{
-  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(244,139,148,.16),transparent 65%);
-  top:-90px;left:-60px;
-}
-.hero-text{flex:1;min-width:260px;position:relative;z-index:1}
-.hero-badge{
-  display:inline-block;background:var(--white);color:var(--coral-deep);
-  font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:999px;
-  border:1px solid rgba(244,139,148,.3);margin-bottom:14px;
-}
-.hero h2{font-size:34px;font-weight:800;line-height:1.35;margin-bottom:12px}
-.hero h2 em{font-style:normal;color:var(--coral-deep);position:relative}
-.hero p{color:var(--text-soft);font-size:15.5px;line-height:1.9;max-width:440px;margin-bottom:22px}
-.hero-art{flex-shrink:0;position:relative;z-index:1}
-.bubble{
-  position:absolute;background:var(--white);border:1px solid rgba(244,139,148,.25);
-  border-radius:var(--petal3);padding:10px 16px;font-size:12.5px;font-weight:700;color:var(--coral-deep);
-  box-shadow:0 8px 20px rgba(244,139,148,.15);animation:floaty 4s ease-in-out infinite;
-}
-.bubble.b1{top:-14px;right:-20px}
-.bubble.b2{bottom:-8px;left:-24px;animation-delay:1.6s}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-
-.btn{
-  border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:14.5px;
-  padding:13px 30px;border-radius:999px;transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;
-}
-.btn-primary{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;box-shadow:0 8px 22px rgba(224,107,119,.35)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(224,107,119,.45)}
-.btn-ghost{background:var(--white);color:var(--coral-deep);border:1.5px solid rgba(244,139,148,.4)}
-.btn-ghost:hover{background:var(--pink)}
-
-/* ---------- Filters ---------- */
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
-.chip{
-  border:1.5px solid rgba(244,139,148,.35);background:var(--white);color:var(--text-soft);
-  font-family:inherit;font-size:13.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .25s;
-}
-.chip.active{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:0 6px 16px rgba(244,139,148,.4)}
-
-/* ---------- Products ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:24px}
-.card{
-  background:var(--white);border:1px solid rgba(244,139,148,.16);border-radius:34px;
-  overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;position:relative;
-}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.card-img{
-  height:190px;display:flex;align-items:center;justify-content:center;
-  background:var(--pink);position:relative;overflow:hidden;
-}
-.card-img svg{transition:transform .4s ease}
-.card:hover .card-img svg{transform:scale(1.1) rotate(3deg)}
-.card-tag{
-  position:absolute;top:14px;right:14px;background:var(--white);color:var(--coral-deep);
-  font-size:11.5px;font-weight:800;padding:5px 13px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.06);
-}
-.card-body{padding:18px 20px 22px}
-.card-body h3{font-size:16.5px;font-weight:800;margin-bottom:5px}
-.card-body .desc{font-size:12.5px;color:var(--text-soft);margin-bottom:14px;line-height:1.7}
-.card-foot{display:flex;align-items:center;justify-content:space-between}
-.price{font-size:17px;font-weight:800;color:var(--coral-deep)}
-.price small{font-size:11px;font-weight:500}
-.add-btn{
-  border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:800;
-  background:var(--pink);color:var(--coral-deep);padding:10px 18px;border-radius:999px;
-  transition:all .25s;display:flex;align-items:center;gap:6px;
-}
-.add-btn:hover{background:var(--coral);color:#fff}
-.add-btn.added{background:#DFF5E5;color:#3E9B5F}
-
-/* ---------- Tasks ---------- */
-.tasks-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:28px}
-.progress-card{
-  flex:1;min-width:280px;background:var(--white);border:1px solid rgba(244,139,148,.2);
-  border-radius:32px;padding:22px 26px;
-}
-.progress-card h3{font-size:16px;font-weight:800;margin-bottom:4px}
-.progress-card p{font-size:12.5px;color:var(--text-soft);margin-bottom:14px}
-.progress-track{height:14px;background:var(--pink);border-radius:999px;overflow:hidden;position:relative}
-.progress-fill{
-  height:100%;width:0%;border-radius:999px;
-  background:linear-gradient(90deg,var(--coral),var(--coral-deep));
-  transition:width .6s cubic-bezier(.22,1,.36,1);position:relative;
-}
-.progress-fill::after{
-  content:"";position:absolute;inset:0;border-radius:999px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
-  animation:shine 2.4s linear infinite;
-}
-@keyframes shine{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-.progress-meta{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;font-weight:700;color:var(--coral-deep)}
-
-.blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
-.block{
-  background:var(--white);border:1px solid rgba(244,139,148,.18);border-radius:36px;
-  padding:22px;transition:box-shadow .3s;
-}
-.block:hover{box-shadow:var(--shadow)}
-.block-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.block-icon{
-  width:44px;height:44px;border-radius:var(--petal);flex-shrink:0;
-  background:var(--pink);display:flex;align-items:center;justify-content:center;color:var(--coral-deep);
-}
-.block-head h4{font-size:15.5px;font-weight:800}
-.block-head .time{font-size:11.5px;color:var(--text-soft);font-weight:500}
-.block-badge{
-  margin-inline-start:auto;font-size:11px;font-weight:800;background:var(--pink);color:var(--coral-deep);
-  padding:4px 12px;border-radius:999px;transition:all .3s;
-}
-.block.done .block-badge{background:#DFF5E5;color:#3E9B5F}
-.block.done{border-color:rgba(62,155,95,.4)}
-.task{
-  display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px;
-  transition:background .2s;position:relative;
-}
+:root{--bg:#FFFDF7;color-scheme:light;--pink:#FDF0F2;--soft:#FBE3E7;--coral:#F48B94;--deep:#E06B77;--text:#5A3A41;--mute:#9A6B74;--card:#fff;--line:rgba(244,139,148,.2);--ok:#4A9A63;--sh:0 10px 30px rgba(244,139,148,.16)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-tap-highlight-color:transparent}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 520px 320px at 92% -6%,rgba(244,139,148,.14),transparent 70%),radial-gradient(ellipse 620px 400px at 50% 108%,rgba(244,139,148,.10),transparent 70%)}
+main,header{position:relative;z-index:1}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overscroll-behavior-y:none}
+header{position:sticky;z-index:9;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(255,253,247,.88);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:10px 16px}
+.hi{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.mark{width:42px;height:42px;border-radius:58% 42% 55% 45%/52% 56% 44% 48%;background:linear-gradient(135deg,var(--coral),var(--deep));display:grid;place-items:center;font-size:22px;box-shadow:var(--sh)}
+.logo b{font-size:18px;font-weight:900;display:block;line-height:1.1}.logo small{font-size:11px;color:var(--deep)}
+.tabs{margin-inline-start:auto;display:flex;gap:4px;background:var(--pink);padding:4px;border-radius:99px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{border:0;background:none;font:700 13px inherit;font-family:inherit;color:var(--mute);padding:8px 15px;border-radius:99px;white-space:nowrap;cursor:pointer}
+.tabs button.on{background:var(--card);color:var(--deep);box-shadow:0 3px 10px rgba(224,107,119,.2)}
+main{max-width:1100px;margin:auto;padding:22px 16px 60px}
+.pg{display:none}.pg.on{display:block;animation:up .4s ease}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h2{font-size:26px;font-weight:900;margin-bottom:6px}h2 em{font-style:normal;color:var(--deep)}
+.lead{color:var(--mute);font-size:14px;line-height:1.9;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px}
+.thead{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:26px}.pcard{flex:1;min-width:270px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:22px 26px}.pcard h3{font-size:16px;font-weight:800;margin-bottom:4px}.pcard p{font-size:12.5px;color:var(--mute);margin-bottom:14px;line-height:1.8}
+.block{border-radius:36px;padding:22px}.block.done{border-color:rgba(62,155,95,.4)}.block.done .bh span{background:#DFF5E5;color:#3E9B5F}
+.bh .ic{border-radius:58% 42% 55% 45%/52% 56% 44% 48%;color:var(--deep)}.bh .tm{font-size:11.5px;color:var(--mute)}
+.task .x{opacity:0;display:grid;place-items:center}.task:hover .x{opacity:1}@media(hover:none){.task .x{opacity:1}}
+.task .bx svg{display:block}.ab{border-radius:50%}
+.track{height:13px;background:var(--soft);border-radius:99px;overflow:hidden;margin-top:12px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--deep));border-radius:99px;transition:width .6s}
+.meta{display:flex;justify-content:space-between;font-size:12.5px;font-weight:800;color:var(--deep);margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.bh{display:flex;align-items:center;gap:10px;margin-bottom:10px}.bh .ic{width:40px;height:40px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-size:20px}
+.bh b{font-size:15.5px}.bh span{margin-inline-start:auto;font-size:11px;font-weight:800;background:var(--pink);color:var(--deep);padding:4px 11px;border-radius:99px}
+.task{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px}
 .task:hover{background:var(--pink)}
-.task input[type=checkbox]{display:none}
-.task .box{
-  width:24px;height:24px;border-radius:8px;border:2px solid rgba(244,139,148,.5);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;background:#fff;
-}
-.task .box svg{opacity:0;transform:scale(.4);transition:all .25s cubic-bezier(.34,1.56,.64,1)}
-.task input:checked + .box{background:var(--coral);border-color:var(--coral)}
-.task input:checked + .box svg{opacity:1;transform:scale(1)}
-.task label{flex:1;font-size:14px;cursor:pointer;transition:all .25s;line-height:1.6}
-.task input:checked ~ label{color:var(--text-soft);text-decoration:line-through;text-decoration-color:var(--coral)}
-.task .del{
-  border:none;background:transparent;color:var(--text-soft);cursor:pointer;padding:4px;border-radius:8px;
-  opacity:0;transition:opacity .2s,color .2s;
-}
-.task:hover .del{opacity:1}
-.task .del:hover{color:var(--coral-deep)}
-.add-task{display:flex;gap:8px;margin-top:14px}
-.add-task input{
-  flex:1;border:1.5px solid rgba(244,139,148,.3);background:var(--ivory);border-radius:999px;
-  padding:10px 18px;font-family:inherit;font-size:13.5px;color:var(--text);outline:none;transition:border-color .2s;min-width:0;
-}
-.add-task input:focus{border-color:var(--coral)}
-.add-task button{
-  border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;flex-shrink:0;
-  background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s;
-}
-.add-task button:hover{transform:scale(1.1) rotate(90deg)}
-.empty-tasks{font-size:12.5px;color:var(--text-soft);text-align:center;padding:12px 0 4px}
-
-/* ---------- Cart drawer ---------- */
-.overlay{
-  position:fixed;inset:0;background:rgba(90,58,65,.35);backdrop-filter:blur(3px);
-  opacity:0;pointer-events:none;transition:opacity .35s;z-index:90;
-}
-.overlay.open{opacity:1;pointer-events:auto}
-.drawer{
-  position:fixed;top:0;bottom:0;left:0;width:min(400px,92vw);z-index:100;
-  background:var(--ivory);box-shadow:20px 0 60px rgba(224,107,119,.25);
-  transform:translateX(-105%);transition:transform .45s cubic-bezier(.22,1,.36,1);
-  display:flex;flex-direction:column;
-}
-.drawer.open{transform:translateX(0)}
-.drawer-head{
-  padding:22px 24px;display:flex;align-items:center;gap:12px;
-  background:linear-gradient(135deg,var(--pink),#fff);border-bottom:1px solid rgba(244,139,148,.2);
-}
-.drawer-head h3{font-size:18px;font-weight:800;flex:1}
-.drawer-close{
-  border:none;background:var(--white);width:36px;height:36px;border-radius:12px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:all .2s;
-}
-.drawer-close:hover{color:var(--coral-deep);transform:rotate(90deg)}
-.drawer-body{flex:1;overflow-y:auto;padding:18px 24px}
-.cart-item{
-  display:flex;gap:14px;align-items:center;background:var(--white);
-  border:1px solid rgba(244,139,148,.15);border-radius:24px;padding:12px;margin-bottom:12px;
-  animation:fadeUp .35s ease;
-}
-.cart-item .thumb{
-  width:58px;height:58px;border-radius:var(--petal2);background:var(--pink);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.cart-item .info{flex:1;min-width:0}
-.cart-item .info h5{font-size:13.5px;font-weight:800;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cart-item .info .p{font-size:12.5px;font-weight:800;color:var(--coral-deep)}
-.qty{display:flex;align-items:center;gap:8px;background:var(--pink);border-radius:999px;padding:3px}
-.qty button{
-  border:none;background:var(--white);width:24px;height:24px;border-radius:50%;cursor:pointer;
-  font-weight:800;color:var(--coral-deep);font-size:14px;line-height:1;transition:transform .15s;
-}
-.qty button:hover{transform:scale(1.15)}
-.qty span{font-size:13px;font-weight:800;min-width:16px;text-align:center}
-.cart-empty{text-align:center;padding:60px 20px;color:var(--text-soft)}
-.cart-empty .big{font-size:52px;margin-bottom:12px}
-.cart-empty h4{font-size:16px;font-weight:800;color:var(--text);margin-bottom:6px}
-.drawer-foot{padding:20px 24px;border-top:1px solid rgba(244,139,148,.2);background:var(--white)}
-.total-row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--text-soft);margin-bottom:6px}
-.total-row.grand{font-size:17px;font-weight:800;color:var(--text);margin:12px 0 16px}
-.checkout-btn{width:100%;justify-content:center}
-
-/* ---------- Toast & confetti ---------- */
-.toast{
-  position:fixed;bottom:28px;right:50%;transform:translate(50%,120px);z-index:200;
-  background:var(--white);border:1.5px solid rgba(244,139,148,.4);border-radius:999px;
-  padding:13px 26px;font-size:14px;font-weight:800;color:var(--coral-deep);
-  box-shadow:0 14px 40px rgba(224,107,119,.3);transition:transform .45s cubic-bezier(.34,1.56,.64,1);
-  display:flex;align-items:center;gap:8px;white-space:nowrap;
-}
-.toast.show{transform:translate(50%,0)}
-.petal-fall{position:fixed;top:-30px;z-index:300;pointer-events:none;animation:fall linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
-
-footer{
-  text-align:center;padding:26px;font-size:12.5px;color:var(--text-soft);
-  border-top:1px solid rgba(244,139,148,.15);position:relative;z-index:1;
-}
-@media (max-width:640px){
-  .hero{padding:28px 24px;border-radius:32px}
-  .hero h2{font-size:25px}
-  nav button{padding:8px 14px;font-size:13px}
-  .header-inner{padding:12px 16px;gap:10px}
-  .logo h1{font-size:17px}
-}
+.task .bx{width:24px;height:24px;border-radius:8px;border:2px solid rgba(244,139,148,.5);flex:none;display:grid;place-items:center;background:var(--card);color:#fff;font-size:14px;cursor:pointer}
+.task.d .bx{background:var(--coral)}.task .t{flex:1;font-size:14px;line-height:1.6;cursor:pointer}
+.task.d .t{text-decoration:line-through;color:var(--mute)}
+.x{border:0;background:none;color:var(--mute);cursor:pointer;font-size:15px;padding:4px 6px;border-radius:8px}.x:hover{color:var(--deep)}
+.add{display:flex;gap:8px;margin-top:10px}
+input[type=text],textarea{width:100%;border:1.5px solid var(--line);background:var(--bg);color:var(--text);border-radius:18px;padding:11px 16px;font:14px inherit;font-family:inherit;outline:0}
+input:focus,textarea:focus{border-color:var(--coral)}textarea{min-height:120px;resize:vertical;line-height:1.9}
+.btn{border:0;cursor:pointer;font:800 13px inherit;font-family:inherit;background:var(--coral);color:#fff;padding:11px 20px;border-radius:99px;box-shadow:0 5px 14px rgba(244,139,148,.35)}
+.btn.g{background:none;color:var(--mute);border:1.5px solid var(--line);box-shadow:none}
+.plus{width:42px;height:42px;padding:0;flex:none;font-size:20px}
+.jl{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}@media(max-width:860px){.jl{grid-template-columns:1fr}}
+.f{margin-bottom:14px}.f label{display:block;font-size:12.5px;font-weight:800;color:var(--deep);margin-bottom:6px}
+.moods{display:flex;gap:8px;flex-wrap:wrap}.mood{border:1.5px solid var(--line);background:var(--card);color:var(--mute);border-radius:99px;padding:8px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.mood.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+.en{position:relative;margin-bottom:12px}.en .dt{font-size:11.5px;font-weight:800;color:var(--deep);background:var(--pink);padding:3px 11px;border-radius:99px;display:inline-block;margin-bottom:8px}
+.en h4{font-size:15px;margin-bottom:6px}.en p{font-size:13.5px;color:var(--mute);line-height:1.9;white-space:pre-wrap;word-break:break-word}
+.en .x{position:absolute;top:12px;left:12px}
+.empty{text-align:center;color:var(--mute);padding:36px 16px;border:1.5px dashed var(--line);border-radius:22px;font-size:13.5px;line-height:1.9}
+.ch h4{font-size:16px;font-weight:900}.ch .sub{font-size:12px;color:var(--mute);margin-bottom:8px}
+.days{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:12px 0}
+.dc{aspect-ratio:1;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--mute);font:800 9px inherit;font-family:inherit;cursor:pointer;padding:0}
+.dc.on{background:linear-gradient(135deg,var(--coral),var(--deep));border-color:var(--deep);color:#fff}
+.sg h4{font-size:14.5px;margin-bottom:10px}.si{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:14px;font-size:13.5px;margin-bottom:8px}
+.si span{flex:1}.pill{border:1.5px solid var(--line);background:var(--card);color:var(--deep);font:800 11.5px inherit;font-family:inherit;padding:5px 12px;border-radius:99px;cursor:pointer}
+.pill.ok{background:#E7F6EA;color:var(--ok);border-color:rgba(74,154,99,.3)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
+.st{text-align:center}.st .e{font-size:28px}.st .v{font-size:32px;font-weight:900;color:var(--deep);margin:4px 0}.st .l{font-size:12.5px;color:var(--mute);font-weight:700}
+.bars{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;height:180px;margin-top:22px}
+.bw{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}
+.bar{width:100%;max-width:40px;min-height:5px;background:linear-gradient(180deg,var(--coral),var(--deep));border-radius:12px 12px 5px 5px;transition:height .8s;position:relative}
+.bar i{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font:800 11px inherit;font-style:normal;color:var(--deep)}
+.bl{font-size:11px;font-weight:700;color:var(--mute)}
+.foot{text-align:center;margin-top:22px}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="header-inner">
-    <div class="logo" onclick="switchPage('store')">
-      <div class="logo-mark">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C13.8 4.6 13.8 7.4 12 9.2C10.2 7.4 10.2 4.6 12 2Z" fill="#fff" opacity=".95"/>
-          <path d="M12 9.2C14.9 7.9 17.6 8.6 18.9 11C16 12.3 13.3 11.6 12 9.2Z" fill="#fff" opacity=".8"/>
-          <path d="M12 9.2C9.1 7.9 6.4 8.6 5.1 11C8 12.3 10.7 11.6 12 9.2Z" fill="#fff" opacity=".8"/>
-          <path d="M12 10.2C13.7 11.9 13.7 14.6 12 16.3C10.3 14.6 10.3 11.9 12 10.2Z" fill="#fff" opacity=".9"/>
-          <path d="M12 16.3C12 18.6 12 20.6 12 22" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <h1>وردة المخمل</h1>
-        <small>Bunny daily • زهور وتنظيم يومكِ</small>
-      </div>
-    </div>
-    <nav>
-      <button id="tab-store" class="active" onclick="switchPage('store')">المتجر</button>
-      <button id="tab-tasks" onclick="switchPage('tasks')">مهامي اليومية</button>
-    </nav>
-    <button class="cart-btn" onclick="toggleCart(true)" aria-label="سلة التسوق">
-      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5.5 8h13l-1.2 11.2a2 2 0 0 1-2 1.8H8.7a2 2 0 0 1-2-1.8L5.5 8Z"/>
-        <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/>
-      </svg>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
-</header>
-
+<header><div class="hi">
+  <div class="logo"><div class="mark" id="lm"></div><div><b>وردة المخمل</b><small>Bunny daily</small></div></div>
+  <nav class="tabs" id="tabs"></nav>
+</div></header>
 <main>
-  <!-- ==================== STORE ==================== -->
-  <section class="page active" id="page-store">
-    <div class="hero">
-      <div class="hero-text">
-        <span class="hero-badge">توصيل خلال ساعتين داخل المدينة</span>
-        <h2>كل بتلة تحكي حكاية…<br>وهدية <em>تلمس القلب</em> قبل اليد</h2>
-        <p>في «وردة المخمل» نختار أجمل الورود الطازجة ونغلفها بأناقة تليق بمن تُهدى إليها — وبعد اختيار باقتكِ، تنظّمي يومكِ مع «Bunny daily».</p>
-        <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-          تصفحي الباقات
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-      </div>
-      <div class="hero-art">
-        <svg width="230" height="230" viewBox="0 0 200 200" fill="none">
-          <ellipse cx="100" cy="176" rx="52" ry="10" fill="#F48B94" opacity=".18"/>
-          <path d="M100 178C100 150 100 128 100 112" stroke="#7DA87B" stroke-width="4" stroke-linecap="round"/>
-          <path d="M100 150C88 146 80 136 80 124C92 128 100 138 100 150Z" fill="#A8CBA0"/>
-          <g transform="translate(100 92)">
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" transform="rotate(0)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(45)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(90)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(135)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(180)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(225)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(270)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".85" transform="rotate(315)"/>
-            <circle r="15" fill="#FDF0F2"/>
-            <circle r="9" fill="#F6C66A"/>
-          </g>
-          <g transform="translate(52 128) scale(.55)">
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF" transform="rotate(60)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF" transform="rotate(120)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF" transform="rotate(180)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF" transform="rotate(240)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F9B8BF" transform="rotate(300)"/>
-            <circle r="12" fill="#F6C66A"/>
-          </g>
-          <g transform="translate(150 138) scale(.42)">
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".7"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".7" transform="rotate(72)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".7" transform="rotate(144)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".7" transform="rotate(216)"/>
-            <ellipse rx="14" ry="26" cy="-26" fill="#F48B94" opacity=".7" transform="rotate(288)"/>
-            <circle r="11" fill="#FDF0F2"/>
-          </g>
-        </svg>
-        <span class="bubble b1">طازجة كل صباح</span>
-        <span class="bubble b2">تغليف هدايا مجاني</span>
-      </div>
-    </div>
-
-    <div class="filters" id="filters"></div>
-    <div class="grid" id="products"></div>
-  </section>
-
-  <!-- ==================== TASKS ==================== -->
-  <section class="page" id="page-tasks">
-    <div class="tasks-head">
-      <div class="progress-card">
-        <h3 id="greeting">مساء الخير يا جميلة</h3>
-        <p>مهامكِ مقسّمة حسب كتل الصلاة — أنجزي كل كتلة بركعة ذكر، واجمعي يوماً مثالياً.</p>
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-meta"><span id="progressText">0 من 0 مهام</span><span id="progressPct">0%</span></div>
-      </div>
-      <svg width="110" height="110" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <ellipse cx="50" cy="90" rx="30" ry="6" fill="#F48B94" opacity=".2"/>
-        <ellipse cx="36" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(-12 36 26)"/>
-        <ellipse cx="64" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(12 64 26)"/>
-        <ellipse cx="50" cy="62" rx="24" ry="21" fill="#fff" stroke="#F48B94" stroke-width="2.5"/>
-        <circle cx="42" cy="58" r="2.6" fill="#5A3A41"/>
-        <circle cx="58" cy="58" r="2.6" fill="#5A3A41"/>
-        <path d="M46 68c2.5 2.5 5.5 2.5 8 0" stroke="#5A3A41" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="35" cy="66" r="3.4" fill="#F48B94" opacity=".45"/>
-        <circle cx="65" cy="66" r="3.4" fill="#F48B94" opacity=".45"/>
-      </svg>
-    </div>
-    <div class="blocks" id="blocks"></div>
-  </section>
+<section class="pg on" id="p0">
+  <div class="thead"><div class="pcard"><h3 id="hmsg">مساء الخير يا جميلة</h3><p>مهامكِ مقسّمة حسب كتل الصلاة — أنجزي كل كتلة بركعة ذكر، واجمعي يوماً مثالياً.</p><div class="track"><div class="fill" id="pf"></div></div><div class="meta"><span id="pc"></span><span id="pp"></span></div></div><div id="bun"></div></div>
+  <div class="grid" id="blocks"></div>
+</section>
+<section class="pg" id="p1">
+  <h2>يوميّاتي <em>✿</em></h2><p class="lead">مساحة صغيرة لكتابة أفكارك ومشاعرك، تُحفظ على جهازك.</p>
+  <div class="jl"><div class="card"><div class="f"><label>العنوان</label><input type="text" id="jt" placeholder="عنوان اليوم"></div>
+  <div class="f"><label>كيف تشعرين؟</label><div class="moods" id="moods"></div></div>
+  <div class="f"><label>ما في قلبك</label><textarea id="jb" placeholder="اكتبي هنا..."></textarea></div>
+  <button class="btn" id="jsave">حفظ اليومية</button></div>
+  <div id="entries"></div></div>
+</section>
+<section class="pg" id="p2">
+  <h2>تحدّياتي <em>✿</em></h2><p class="lead">اضغطي على اليوم الذي أنجزتِه لتلوّنيه. خطوة صغيرة كل يوم.</p>
+  <div class="grid" id="chs"></div>
+</section>
+<section class="pg" id="p3">
+  <h2>مهام <em>مقترحة</em></h2><p class="lead">أفكار جاهزة، اضغطي «أضف» لتنتقل إلى مهامك اليومية.</p>
+  <div class="grid" id="sugs"></div>
+</section>
+<section class="pg" id="p4">
+  <h2>إحصائياتي <em>✿</em></h2><p class="lead">نظرة على إنجازاتك.</p>
+  <div class="stats" id="stats"></div>
+  <div class="card"><b>مهامك المنجزة في آخر 7 أيام</b><div class="bars" id="bars"></div></div>
+  <div class="foot"><button class="btn g" id="reset">مسح كل البيانات</button></div>
+</section>
 </main>
-
-<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
-<aside class="drawer" id="drawer" aria-label="سلة التسوق">
-  <div class="drawer-head">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E06B77" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5.5 8h13l-1.2 11.2a2 2 0 0 1-2 1.8H8.7a2 2 0 0 1-2-1.8L5.5 8Z"/>
-      <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/>
-    </svg>
-    <h3>سلة المخمل</h3>
-    <button class="drawer-close" onclick="toggleCart(false)" aria-label="إغلاق">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17.95 4.77 19.23 6.05 13.27 12l5.96 5.95-1.28 1.28L12 13.27l-5.95 5.96-1.28-1.28L10.73 12 4.77 6.05l1.28-1.28L12 10.73l5.95-5.96Z" fill="currentColor"/></svg>
-    </button>
-  </div>
-  <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-foot" id="cartFoot"></div>
-</aside>
-
-<div class="toast" id="toast"></div>
-
-<footer>وردة المخمل × Bunny daily — صُنع بحبٍ وبتلات ورد</footer>
-
 <script>
-/* ==================== DATA ==================== */
-const FLOWER_SVG = (c1,c2,n,s)=> {
-  let p='';
-  for(let i=0;i<n;i++) p+=`<ellipse rx="${8*s}" ry="${15*s}" cy="${-15*s}" fill="${c1}" ${i?`transform="rotate(${360/n*i})" opacity=".88"`:''}/>`;
-  return `<svg width="92" height="92" viewBox="-34 -36 68 72"><path d="M0 34L0 8" stroke="#7DA87B" stroke-width="3.4" stroke-linecap="round"/><path d="M0 24C-8 22 -13 16 -13 8C-5 10 0 16 0 24Z" fill="#A8CBA0"/><g>${p}<circle r="${7.5*s}" fill="${c2}"/></g></svg>`;
-};
-const PRODUCTS = [
-  {id:1,name:'باقة ورد المخمل',desc:'12 وردة مرجانية بغليف مخملي وردي',price:189,cat:'باقات',tag:'الأكثر طلباً',svg:FLOWER_SVG('#F48B94','#F6C66A',8,1)},
-  {id:2,name:'باقة العروس',desc:'بيوني أبيض وورد مع شرائط ساتان',price:349,cat:'باقات',tag:'فاخرة',svg:FLOWER_SVG('#F9B8BF','#FDF0F2',10,1)},
-  {id:3,name:'توليب وردي',desc:'توليب هولندي طازج — الحبة',price:79,cat:'ورد منفرد',tag:'',svg:FLOWER_SVG('#F7A6B0','#F6C66A',6,1)},
-  {id:4,name:'زنبق عاجي',desc:'زنبق أبيض برائحة عطرة — الحبة',price:95,cat:'ورد منفرد',tag:'جديد',svg:FLOWER_SVG('#FDF6E8','#E8B84B',6,1)},
-  {id:5,name:'بيوني حالم',desc:'بيوني وردي متفتح — الحبة',price:145,cat:'ورد منفرد',tag:'',svg:FLOWER_SVG('#F48B94','#FDF0F2',8,.95)},
-  {id:6,name:'جوري مرجاني',desc:'جوري دمشقي برائحة الياسمين',price:65,cat:'ورد منفرد',tag:'',svg:FLOWER_SVG('#E06B77','#F6C66A',7,.95)},
-  {id:7,name:'لافندر ناعم',desc:'حزمة لافندر مجفف للتزيين',price:59,cat:'نباتات',tag:'',svg:FLOWER_SVG('#B79BD8','#8E6CC0',5,1)},
-  {id:8,name:'دوار شمس مصغّر',desc:'دوار شمس مرح في مزهرية صغيرة',price:49,cat:'نباتات',tag:'عرض',svg:FLOWER_SVG('#F6C66A','#8A5A2B',12,1)},
-];
-const CATS = ['الكل','باقات','ورد منفرد','نباتات'];
-const PRAYERS = [
-  {id:'fajr',   name:'كتلة الفجر',   time:'الصلاة 5:10 ص',  icon:'M12 3v2M5.6 5.6l1.4 1.4M3 12h2M18 12h2M17 7l1.4-1.4M7 17a5 5 0 0 1 10 0M4 20h16'},
-  {id:'dhuhr',  name:'كتلة الظهر',  time:'الصلاة 12:15 م', icon:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},
-  {id:'asr',    name:'كتلة العصر',  time:'الصلاة 3:35 م',  icon:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},
-  {id:'maghrib',name:'كتلة المغرب', time:'الصلاة 6:05 م',  icon:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 16h16M7 20h10M12 4v3'},
-  {id:'isha',   name:'كتلة العشاء', time:'الصلاة 7:30 م',  icon:'M20 13A8 8 0 1 1 11 4a6.5 6.5 0 0 0 9 9ZM17 4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7L17 4Z'},
-];
-const CHEERS = ['أحسنتِ يا جميلة!','مهمة أخرى وردة في سلة يومكِ','استمري، أنتِ تتألقين','خطوة أقرب ليوم مثالي','Bunny فخورة فيكِ!'];
-const BLOCK_CHEERS = ['كتلة اكتملت! بارك الله في وقتكِ','أنجزتِ الكتلة كاملة — رائع!'];
-const CHECK_SVG = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19.3 5.9 20.6 7.2 9.7 18.1 3.4 11.9l1.3-1.3 5 4.9L19.3 5.9Z" fill="#fff"/></svg>';
-const TRASH_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 3a.9.9 0 0 1 .9-.9h6a.9.9 0 0 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM10 15.9a.9.9 0 0 1-1.8 0V10a.9.9 0 0 1 1.8 0v5.9ZM13.1 15c0 .5.4.9.9.9s.9-.4.9-.9v-5a.9.9 0 0 0-1.8 0v5ZM2.1 6a.9.9 0 0 1 .9-.9h18a.9.9 0 0 1 0 1.8h-1.2l-.9 11.8a2 2 0 0 1-2 1.9H7.1a2 2 0 0 1-2-1.9L4.2 6.9H3a.9.9 0 0 1-.9-.9Z"/></svg>';
-
-/* ==================== STATE ==================== */
-const ls = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
-let cart = JSON.parse(ls.get('wm_cart')||'[]');
-let tasks = JSON.parse(ls.get('wm_tasks')||'null') || {
-  fajr:[{text:'صلاة الفجر في وقتها',done:false},{text:'شرب كوب ماء وذكر الصباح',done:false}],
-  dhuhr:[{text:'قراءة 10 صفحات من كتاب',done:false}],
-  asr:[], maghrib:[{text:'مشي 20 دقيقة',done:false}], isha:[{text:'تجهيز قائمة الغد',done:false}],
-};
-let activeCat = 'الكل';
-const save = () => { ls.set('wm_cart',JSON.stringify(cart)); ls.set('wm_tasks',JSON.stringify(tasks)); };
-const $ = id => document.getElementById(id);
-
-/* ==================== PAGES ==================== */
-function switchPage(p){
-  $('page-store').classList.toggle('active', p==='store');
-  $('page-tasks').classList.toggle('active', p==='tasks');
-  $('tab-store').classList.toggle('active', p==='store');
-  $('tab-tasks').classList.toggle('active', p==='tasks');
+const $=s=>document.querySelector(s);
+const ls={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const FL=(c1,c2,n,sc,z)=>{let p='';for(let i=0;i<n;i++)p+=`<ellipse rx="${8*sc}" ry="${15*sc}" cy="${-15*sc}" fill="${c1}" ${i?`transform="rotate(${360/n*i})" opacity=".88"`:''}/>`;return `<svg width="${z}" height="${z}" viewBox="-34 -36 68 72" aria-hidden="true"><path d="M0 34L0 8" stroke="#7DA87B" stroke-width="3.4" stroke-linecap="round"/><path d="M0 24C-8 22 -13 16 -13 8C-5 10 0 16 0 24Z" fill="#A8CBA0"/><g>${p}<circle r="${7.5*sc}" fill="${c2}"/></g></svg>`};
+const BUN='<svg width="110" height="110" viewBox="0 0 100 100" fill="none" aria-hidden="true"><ellipse cx="50" cy="90" rx="30" ry="6" fill="#F48B94" opacity=".2"/><ellipse cx="36" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(-12 36 26)"/><ellipse cx="64" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(12 64 26)"/><ellipse cx="50" cy="62" rx="24" ry="21" fill="#fff" stroke="#F48B94" stroke-width="2.5"/><circle cx="42" cy="58" r="2.6" fill="#5A3A41"/><circle cx="58" cy="58" r="2.6" fill="#5A3A41"/><path d="M46 68c2.5 2.5 5.5 2.5 8 0" stroke="#5A3A41" stroke-width="2.2" stroke-linecap="round"/><circle cx="35" cy="66" r="3.4" fill="#F48B94" opacity=".45"/><circle cx="65" cy="66" r="3.4" fill="#F48B94" opacity=".45"/></svg>';
+const CHK='<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19.3 5.9 20.6 7.2 9.7 18.1 3.4 11.9l1.3-1.3 5 4.9L19.3 5.9Z" fill="#fff"/></svg>';
+const TRS='<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 3a.9.9 0 0 1 .9-.9h6a.9.9 0 0 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM10 15.9a.9.9 0 0 1-1.8 0V10a.9.9 0 0 1 1.8 0v5.9ZM13.1 15c0 .5.4.9.9.9s.9-.4.9-.9v-5a.9.9 0 0 0-1.8 0v5ZM2.1 6a.9.9 0 0 1 .9-.9h18a.9.9 0 0 1 0 1.8h-1.2l-.9 11.8a2 2 0 0 1-2 1.9H7.1a2 2 0 0 1-2-1.9L4.2 6.9H3a.9.9 0 0 1-.9-.9Z"/></svg>';
+const BL=[{id:'fajr',n:'كتلة الفجر',h:'الصلاة 5:10 ص',i:'M12 3v2M5.6 5.6l1.4 1.4M3 12h2M18 12h2M17 7l1.4-1.4M7 17a5 5 0 0 1 10 0M4 20h16'},{id:'dhuhr',n:'كتلة الظهر',h:'الصلاة 12:15 م',i:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},{id:'asr',n:'كتلة العصر',h:'الصلاة 3:35 م',i:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},{id:'maghrib',n:'كتلة المغرب',h:'الصلاة 6:05 م',i:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 16h16M7 20h10M12 4v3'},{id:'isha',n:'كتلة العشاء',h:'الصلاة 7:30 م',i:'M20 13A8 8 0 1 1 11 4a6.5 6.5 0 0 0 9 9ZM17 4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7L17 4Z'}];
+const MOODS=['سعيدة','مرتاحة','ممتنّة','حزينة','متعبة'];
+const CH=[{id:'w',n:'شرب الماء',e:FL('#F48B94','#F6C66A',8,1,44),d:30,s:'8 أكواب يوميًا'},{id:'r',n:'القراءة',e:FL('#B79BD8','#8E6CC0',5,1,44),d:30,s:'10 دقائق كل يوم'},{id:'s',n:'رعاية الذات',e:FL('#F9B8BF','#FDF0F2',10,1,44),d:21,s:'شيء لطيف لنفسك'}];
+const SUG=[{n:'عناية',b:'fajr',l:['غسل الوجه وترطيبه','شرب كوب ماء دافئ','ترتيب السرير']},{n:'تطوّر',b:'dhuhr',l:['قراءة 10 صفحات','تعلّم كلمة جديدة','تدوين فكرة اليوم']},{n:'استرخاء',b:'isha',l:['المشي 15 دقيقة','كتابة 3 أشياء أشكر عليها','إطفاء الشاشات قبل النوم']}];
+const today=()=>new Date().toISOString().slice(0,10);
+let S;try{S=JSON.parse(ls.g('wm_app2')||'null')}catch(e){}
+if(!S)S={date:today(),tasks:{fajr:[{i:1,t:'صلاة الفجر في وقتها',d:0},{i:2,t:'شرب كوب ماء وذكر الصباح',d:0}],dhuhr:[{i:3,t:'قراءة 10 صفحات من كتاب',d:0}],asr:[],maghrib:[{i:4,t:'مشي 20 دقيقة',d:0}],isha:[{i:5,t:'تجهيز قائمة الغد',d:0}]},j:[],c:{},h:{}};
+BL.forEach(b=>{S.tasks[b.id]=S.tasks[b.id]||[]});
+const all=()=>[].concat(...BL.map(b=>S.tasks[b.id]));
+const save=()=>ls.s('wm_app2',JSON.stringify(S));
+if(S.date!==today()){S.h[S.date]=all().filter(t=>t.d).length;BL.forEach(b=>S.tasks[b.id].forEach(t=>t.d=0));S.date=today();save()}
+const esc=s=>{const d=document.createElement('div');d.textContent=s;return d.innerHTML};
+let mood=0;
+const TB=['يومي','يوميّاتي','تحدّياتي','مقترحات','إحصائيات'];
+$('#tabs').innerHTML=TB.map((t,i)=>`<button data-i="${i}">${t}</button>`).join('');
+function go(i){document.querySelectorAll('.pg').forEach((p,k)=>p.classList.toggle('on',k==i));document.querySelectorAll('.tabs button').forEach((b,k)=>b.classList.toggle('on',k==i));if(i==4)stats();scrollTo(0,0)}
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)go(+b.dataset.i)};
+function day(){
+  const a=all(),d=a.filter(t=>t.d).length,p=a.length?Math.round(d/a.length*100):0,h=new Date().getHours();
+  $('#pf').style.width=p+'%';$('#pc').textContent=d+' من '+a.length+' مهام';$('#pp').textContent=p+'%';
+  $('#hmsg').textContent=h<12?'صباح الورد يا جميلة الجميلات':h<17?'نهاركِ سعيد يا جميلة':'مساء الخير يا جميلة';
+  $('#blocks').innerHTML=BL.map(b=>{const L=S.tasks[b.id]||[],n=L.filter(t=>t.d).length;
+    return `<div class="card block ${L.length&&n==L.length?'done':''}"><div class="bh"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${b.i}"/></svg></div><div><b>${b.n}</b><div class="tm">${b.h}</div></div><span>${n}/${L.length}</span></div>
+    ${L.map(t=>`<div class="task ${t.d?'d':''}"><div class="bx" data-k="${t.i}">${t.d?CHK:''}</div><div class="t" data-k="${t.i}">${esc(t.t)}</div><button class="x" data-x="${t.i}" aria-label="حذف">${TRS}</button></div>`).join('')||'<div class="empty" style="padding:12px;border:0">لا مهام بعد — أضيفي أول مهمة</div>'}
+    <div class="add"><input type="text" placeholder="مهمة جديدة لـ${b.n.replace('كتلة ','')}..." data-b="${b.id}"><button class="btn plus ab" data-a="${b.id}" aria-label="إضافة">＋</button></div></div>`}).join('');
 }
-
-/* ==================== STORE ==================== */
-function renderFilters(){
-  $('filters').innerHTML = CATS.map(c=>`<button class="chip ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</button>`).join('');
-}
-function setCat(c){ activeCat=c; renderFilters(); renderProducts(); }
-function renderProducts(){
-  const list = PRODUCTS.filter(p=>activeCat==='الكل'||p.cat===activeCat);
-  $('products').innerHTML = list.map(p=>`
-    <div class="card">
-      <div class="card-img">${p.svg}${p.tag?`<span class="card-tag">${p.tag}</span>`:''}</div>
-      <div class="card-body">
-        <h3>${p.name}</h3>
-        <div class="desc">${p.desc}</div>
-        <div class="card-foot">
-          <span class="price">${p.price} <small>ر.س</small></span>
-          <button class="add-btn" id="add-${p.id}" onclick="addToCart(${p.id})">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg>
-            أضيفي للسلة
-          </button>
-        </div>
-      </div>
-    </div>`).join('');
-}
-function addToCart(id){
-  const item = cart.find(i=>i.id===id);
-  item ? item.qty++ : cart.push({id, qty:1});
-  save(); renderCart();
-  const btn = $('add-'+id);
-  if(btn){ btn.classList.add('added'); btn.innerHTML='في السلة ✓'; setTimeout(()=>{btn.classList.remove('added'); btn.innerHTML='أضيفي للسلة';},1200); }
-  toast('أُضيفت للسلة — اختيار راقٍ!');
-}
-
-/* ==================== CART ==================== */
-function toggleCart(open){
-  $('drawer').classList.toggle('open', open);
-  $('overlay').classList.toggle('open', open);
-}
-function changeQty(id,d){
-  const item = cart.find(i=>i.id===id); if(!item) return;
-  item.qty += d;
-  if(item.qty<=0) cart = cart.filter(i=>i.id!==id);
-  save(); renderCart();
-}
-function removeItem(id){ cart = cart.filter(i=>i.id!==id); save(); renderCart(); }
-function checkout(){
-  if(!cart.length) return;
-  $('cartBody').innerHTML = `<div class="cart-empty"><div class="big">🌸</div><h4>تم استلام طلبكِ!</h4><p>ستصل باقتكِ مع رسالة مخملية خلال ساعتين</p></div>`;
-  $('cartFoot').innerHTML = '';
-  cart = []; save(); updateBadge();
-  toast('شكراً لكِ — هديتكِ في الطريق!');
-}
-function updateBadge(){
-  const n = cart.reduce((s,i)=>s+i.qty,0);
-  $('cartCount').textContent = n;
-  $('cartCount').classList.toggle('show', n>0);
-}
-function renderCart(){
-  updateBadge();
-  if(!cart.length){
-    $('cartBody').innerHTML = `<div class="cart-empty"><div class="big">🌷</div><h4>السلة فارغة</h4><p>أضيفي لمسة ورد ليومكِ</p></div>`;
-    $('cartFoot').innerHTML = '';
-    return;
-  }
-  $('cartBody').innerHTML = cart.map(i=>{
-    const p = PRODUCTS.find(x=>x.id===i.id);
-    return `<div class="cart-item">
-      <div class="thumb">${p.svg.replace('width="92" height="92"','width="40" height="40"')}</div>
-      <div class="info"><h5>${p.name}</h5><span class="p">${p.price*i.qty} ر.س</span></div>
-      <div class="qty">
-        <button onclick="changeQty(${i.id},1)">+</button><span>${i.qty}</span><button onclick="changeQty(${i.id},-1)">−</button>
-      </div>
-      <button class="del task-del" style="border:none;background:transparent;color:var(--text-soft);cursor:pointer" onclick="removeItem(${i.id})">${TRASH_SVG}</button>
-    </div>`;
-  }).join('');
-  const sub = cart.reduce((s,i)=>s + PRODUCTS.find(x=>x.id===i.id).price*i.qty, 0);
-  const delivery = sub >= 200 ? 0 : 25;
-  $('cartFoot').innerHTML = `
-    <div class="total-row"><span>المجموع الفرعي</span><span>${sub} ر.س</span></div>
-    <div class="total-row"><span>التوصيل ${delivery===0?'(مجاني لطلبكِ!)':''}</span><span>${delivery} ر.س</span></div>
-    <div class="total-row grand"><span>الإجمالي</span><span>${sub+delivery} ر.س</span></div>
-    <button class="btn btn-primary checkout-btn" onclick="checkout()">إتمام الطلب</button>`;
-}
-
-/* ==================== TASKS ==================== */
-function renderTasks(){
-  $('blocks').innerHTML = PRAYERS.map(pr=>{
-    const list = tasks[pr.id]||[];
-    const done = list.filter(t=>t.done).length;
-    return `<div class="block ${list.length&&done===list.length?'done':''}">
-      <div class="block-head">
-        <div class="block-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${pr.icon}"/></svg></div>
-        <div><h4>${pr.name}</h4><span class="time">${pr.time}</span></div>
-        <span class="block-badge">${done}/${list.length}</span>
-      </div>
-      ${list.map((t,i)=>`
-        <div class="task">
-          <input type="checkbox" id="t-${pr.id}-${i}" ${t.done?'checked':''} onchange="toggleTask('${pr.id}',${i})">
-          <label class="box" for="t-${pr.id}-${i}">${CHECK_SVG}</label>
-          <label for="t-${pr.id}-${i}">${t.text}</label>
-          <button class="del" onclick="deleteTask('${pr.id}',${i})" aria-label="حذف">${TRASH_SVG}</button>
-        </div>`).join('') || '<div class="empty-tasks">لا مهام بعد — أضيفي أول مهمة</div>'}
-      <div class="add-task">
-        <input type="text" id="inp-${pr.id}" placeholder="مهمة جديدة لـ${pr.name.replace('كتلة ','')}..." onkeydown="if(event.key==='Enter')addTask('${pr.id}')">
-        <button onclick="addTask('${pr.id}')" aria-label="إضافة"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></button>
-      </div>
-    </div>`;
-  }).join('');
-  updateProgress();
-}
-function addTask(pid){
-  const inp = $('inp-'+pid);
-  const text = inp.value.trim(); if(!text) return;
-  tasks[pid].push({text, done:false});
-  inp.value=''; save(); renderTasks();
-}
-function deleteTask(pid,i){ tasks[pid].splice(i,1); save(); renderTasks(); }
-function toggleTask(pid,i){
-  tasks[pid][i].done = !tasks[pid][i].done;
-  save(); renderTasks();
-  if(tasks[pid][i].done){
-    const list = tasks[pid];
-    if(list.every(t=>t.done)){
-      const all = PRAYERS.every(p=> (tasks[p.id]||[]).length && (tasks[p.id]||[]).every(t=>t.done));
-      if(all){ toast('يوم مثالي! كل المهام أنجزتِها — Bunny فخورة جداً'); petalRain(); }
-      else toast(BLOCK_CHEERS[Math.floor(Math.random()*BLOCK_CHEERS.length)]);
-    } else toast(CHEERS[Math.floor(Math.random()*CHEERS.length)]);
-  }
-}
-function updateProgress(){
-  const all = PRAYERS.flatMap(p=>tasks[p.id]||[]);
-  const done = all.filter(t=>t.done).length;
-  const pct = all.length ? Math.round(done/all.length*100) : 0;
-  $('progressFill').style.width = pct+'%';
-  $('progressText').textContent = `${done} من ${all.length} مهام`;
-  $('progressPct').textContent = pct+'%';
-  const h = new Date().getHours();
-  $('greeting').textContent = h<12 ? 'صباح الورد يا جميلة' : h<17 ? 'نهاركِ سعيد يا جميلة' : 'مساء الخير يا جميلة';
-}
-function petalRain(){
-  for(let i=0;i<26;i++){
-    const d = document.createElement('div');
-    d.className='petal-fall';
-    const size = 8+Math.random()*10;
-    d.style.cssText = `left:${Math.random()*100}vw;width:${size}px;height:${size*1.4}px;
-      background:${Math.random()>.5?'#F48B94':'#F9B8BF'};border-radius:60% 40% 55% 45%/60% 55% 45% 40%;
-      animation-duration:${2.2+Math.random()*2}s;animation-delay:${Math.random()*.8}s`;
-    document.body.appendChild(d);
-    setTimeout(()=>d.remove(),5200);
-  }
-}
-
-/* ==================== TOAST ==================== */
-let toastTimer;
-function toast(msg){
-  const t = $('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
-}
-
-/* ==================== INIT ==================== */
-renderFilters(); renderProducts(); renderCart(); renderTasks();
-</script>
-</body>
-</html>
+function addTask(b,t){t=t.trim();if(!t)return;S.tasks[b].push({i:Date.now()+Math.random(),t,d:0});save();day()}
+$('#blocks').onclick=e=>{const k=e.target.closest('[data-k]'),x=e.target.closest('[data-x]'),a=e.target.closest('[data-a]');
+  if(k){all().forEach(t=>{if(t.i==k.dataset.k)t.d=t.d?0:1});save();day()}
+  else if(x){BL.forEach(b=>S.tasks[b.id]=S.tasks[b.id].filter(t=>t.i!=x.dataset.x));save();day()}
+  else if(a){addTask(a.dataset.a,a.previousElementSibling.value)}};
+$('#blocks').onkeydown=e=>{if(e.key=='Enter'&&e.target.dataset.b)addTask(e.target.dataset.b,e.target.value)};
+$('#moods').innerHTML=MOODS.map((m,i)=>`<button class="mood" data-m="${i}">${m}</button>`).join('');
+$('#moods').onclick=e=>{const b=e.target.closest('.mood');if(!b)return;mood=+b.dataset.m;document.querySelectorAll('.mood').forEach((x,i)=>x.classList.toggle('on',i==mood))};
+function jr(){$('#entries').innerHTML=S.j.length?S.j.map(e=>`<div class="card en"><span class="dt">${esc(e.d)} · ${esc(MOODS[e.m])}</span><h4>${esc(e.t||'بدون عنوان')}</h4><p>${esc(e.b)}</p><button class="x" data-j="${e.i}">✕</button></div>`).join(''):'<div class="empty">'+FL('#F48B94','#F6C66A',8,1,60)+'<br>لا توجد يوميات بعد.<br>اكتبي أول يومية لك.</div>'}
+$('#jsave').onclick=()=>{const t=$('#jt').value.trim(),b=$('#jb').value.trim();if(!t&&!b)return;S.j.unshift({i:Date.now(),t,b,m:mood,d:new Date().toLocaleDateString('ar',{day:'numeric',month:'long'})});$('#jt').value=$('#jb').value='';save();jr()};
+$('#entries').onclick=e=>{const x=e.target.closest('[data-j]');if(x){S.j=S.j.filter(v=>v.i!=x.dataset.j);save();jr()}};
+function chs(){$('#chs').innerHTML=CH.map(c=>{const D=S.c[c.id]||[],p=Math.round(D.length/c.d*100);
+  return `<div class="card ch"><h4>${c.e} ${c.n}</h4><div class="sub">${c.s} · ${c.d} يومًا</div><div class="track" style="margin:0"><div class="fill" style="width:${p}%"></div></div><div class="meta"><span>${D.length} من ${c.d}</span><span>${p}%</span></div>
+  <div class="days">${Array.from({length:c.d},(_,i)=>`<button class="dc ${D.includes(i+1)?'on':''}" data-c="${c.id}" data-n="${i+1}">${i+1}</button>`).join('')}</div><button class="btn g" data-r="${c.id}">إعادة البدء</button></div>`}).join('')}
+$('#chs').onclick=e=>{const d=e.target.closest('.dc'),r=e.target.closest('[data-r]');
+  if(d){const D=S.c[d.dataset.c]=S.c[d.dataset.c]||[],n=+d.dataset.n,i=D.indexOf(n);i<0?D.push(n):D.splice(i,1)}
+  else if(r){S.c[r.dataset.r]=[]}else return;save();chs()};
+function sug(){$('#sugs').innerHTML=SUG.map((g,gi)=>`<div class="card sg"><h4 style="display:flex;align-items:center;gap:8px">${FL('#F48B94','#F6C66A',6,.5,26)}${g.n}</h4>${g.l.map((t,i)=>{const has=S.tasks[g.b].some(x=>x.t==t);return `<div class="si"><span>${t}</span><button class="pill ${has?'ok':''}" data-g="${gi}" data-i="${i}">${has?'✓ أُضيفت':'＋ أضف'}</button></div>`}).join('')}</div>`).join('')}
+$('#sugs').onclick=e=>{const p=e.target.closest('.pill');if(!p)return;const g=SUG[p.dataset.g],t=g.l[p.dataset.i];if(!S.tasks[g.b].some(x=>x.t==t)){S.tasks[g.b].push({i:Date.now(),t,d:0});save();day();sug()}};
+function stats(){const a=all(),d=a.filter(t=>t.d).length,cd=Object.values(S.c).reduce((s,v)=>s+v.length,0),h={...S.h};h[today()]=d;
+  const dd=Object.values(h).reduce((s,v)=>s+v,0);
+  $('#stats').innerHTML=[[FL(
