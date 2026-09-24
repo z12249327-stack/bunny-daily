@@ -1,171 +1,356 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F48B94">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="وردة المخمل">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F48B94'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
-<title>وردة المخمل | Bunny daily</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#FFFDF7;color-scheme:light;--pink:#FDF0F2;--soft:#FBE3E7;--coral:#F48B94;--deep:#E06B77;--text:#5A3A41;--mute:#9A6B74;--card:#fff;--line:rgba(244,139,148,.2);--ok:#4A9A63;--sh:0 10px 30px rgba(244,139,148,.16)}
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-tap-highlight-color:transparent}
-*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 520px 320px at 92% -6%,rgba(244,139,148,.14),transparent 70%),radial-gradient(ellipse 620px 400px at 50% 108%,rgba(244,139,148,.10),transparent 70%)}
-main,header{position:relative;z-index:1}
-body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overscroll-behavior-y:none}
-header{position:sticky;z-index:9;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(255,253,247,.88);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:10px 16px}
-.hi{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:10px}
-.mark{width:42px;height:42px;border-radius:58% 42% 55% 45%/52% 56% 44% 48%;background:linear-gradient(135deg,var(--coral),var(--deep));display:grid;place-items:center;font-size:22px;box-shadow:var(--sh)}
-.logo b{font-size:18px;font-weight:900;display:block;line-height:1.1}.logo small{font-size:11px;color:var(--deep)}
-.tabs{margin-inline-start:auto;display:flex;gap:4px;background:var(--pink);padding:4px;border-radius:99px;overflow-x:auto;scrollbar-width:none;max-width:100%}
-.tabs::-webkit-scrollbar{display:none}
-.tabs button{border:0;background:none;font:700 13px inherit;font-family:inherit;color:var(--mute);padding:8px 15px;border-radius:99px;white-space:nowrap;cursor:pointer}
-.tabs button.on{background:var(--card);color:var(--deep);box-shadow:0 3px 10px rgba(224,107,119,.2)}
-main{max-width:1100px;margin:auto;padding:22px 16px 60px}
-.pg{display:none}.pg.on{display:block;animation:up .4s ease}
-@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-h2{font-size:26px;font-weight:900;margin-bottom:6px}h2 em{font-style:normal;color:var(--deep)}
-.lead{color:var(--mute);font-size:14px;line-height:1.9;margin-bottom:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px}
-.thead{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:26px}.pcard{flex:1;min-width:270px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:22px 26px}.pcard h3{font-size:16px;font-weight:800;margin-bottom:4px}.pcard p{font-size:12.5px;color:var(--mute);margin-bottom:14px;line-height:1.8}
-.block{border-radius:36px;padding:22px}.block.done{border-color:rgba(62,155,95,.4)}.block.done .bh span{background:#DFF5E5;color:#3E9B5F}
-.bh .ic{border-radius:58% 42% 55% 45%/52% 56% 44% 48%;color:var(--deep)}.bh .tm{font-size:11.5px;color:var(--mute)}
-.task .x{opacity:0;display:grid;place-items:center}.task:hover .x{opacity:1}@media(hover:none){.task .x{opacity:1}}
-.task .bx svg{display:block}.ab{border-radius:50%}
-.track{height:13px;background:var(--soft);border-radius:99px;overflow:hidden;margin-top:12px}
-.fill{height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--deep));border-radius:99px;transition:width .6s}
-.meta{display:flex;justify-content:space-between;font-size:12.5px;font-weight:800;color:var(--deep);margin-top:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-.bh{display:flex;align-items:center;gap:10px;margin-bottom:10px}.bh .ic{width:40px;height:40px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-size:20px}
-.bh b{font-size:15.5px}.bh span{margin-inline-start:auto;font-size:11px;font-weight:800;background:var(--pink);color:var(--deep);padding:4px 11px;border-radius:99px}
-.task{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px}
-.task:hover{background:var(--pink)}
-.task .bx{width:24px;height:24px;border-radius:8px;border:2px solid rgba(244,139,148,.5);flex:none;display:grid;place-items:center;background:var(--card);color:#fff;font-size:14px;cursor:pointer}
-.task.d .bx{background:var(--coral)}.task .t{flex:1;font-size:14px;line-height:1.6;cursor:pointer}
-.task.d .t{text-decoration:line-through;color:var(--mute)}
-.x{border:0;background:none;color:var(--mute);cursor:pointer;font-size:15px;padding:4px 6px;border-radius:8px}.x:hover{color:var(--deep)}
-.add{display:flex;gap:8px;margin-top:10px}
-input[type=text],textarea{width:100%;border:1.5px solid var(--line);background:var(--bg);color:var(--text);border-radius:18px;padding:11px 16px;font:14px inherit;font-family:inherit;outline:0}
-input:focus,textarea:focus{border-color:var(--coral)}textarea{min-height:120px;resize:vertical;line-height:1.9}
-.btn{border:0;cursor:pointer;font:800 13px inherit;font-family:inherit;background:var(--coral);color:#fff;padding:11px 20px;border-radius:99px;box-shadow:0 5px 14px rgba(244,139,148,.35)}
-.btn.g{background:none;color:var(--mute);border:1.5px solid var(--line);box-shadow:none}
-.plus{width:42px;height:42px;padding:0;flex:none;font-size:20px}
-.jl{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}@media(max-width:860px){.jl{grid-template-columns:1fr}}
-.f{margin-bottom:14px}.f label{display:block;font-size:12.5px;font-weight:800;color:var(--deep);margin-bottom:6px}
-.moods{display:flex;gap:8px;flex-wrap:wrap}.mood{border:1.5px solid var(--line);background:var(--card);color:var(--mute);border-radius:99px;padding:8px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
-.mood.on{background:var(--coral);color:#fff;border-color:var(--coral)}
-.en{position:relative;margin-bottom:12px}.en .dt{font-size:11.5px;font-weight:800;color:var(--deep);background:var(--pink);padding:3px 11px;border-radius:99px;display:inline-block;margin-bottom:8px}
-.en h4{font-size:15px;margin-bottom:6px}.en p{font-size:13.5px;color:var(--mute);line-height:1.9;white-space:pre-wrap;word-break:break-word}
-.en .x{position:absolute;top:12px;left:12px}
-.empty{text-align:center;color:var(--mute);padding:36px 16px;border:1.5px dashed var(--line);border-radius:22px;font-size:13.5px;line-height:1.9}
-.ch h4{font-size:16px;font-weight:900}.ch .sub{font-size:12px;color:var(--mute);margin-bottom:8px}
-.days{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:12px 0}
-.dc{aspect-ratio:1;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--mute);font:800 9px inherit;font-family:inherit;cursor:pointer;padding:0}
-.dc.on{background:linear-gradient(135deg,var(--coral),var(--deep));border-color:var(--deep);color:#fff}
-.sg h4{font-size:14.5px;margin-bottom:10px}.si{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:14px;font-size:13.5px;margin-bottom:8px}
-.si span{flex:1}.pill{border:1.5px solid var(--line);background:var(--card);color:var(--deep);font:800 11.5px inherit;font-family:inherit;padding:5px 12px;border-radius:99px;cursor:pointer}
-.pill.ok{background:#E7F6EA;color:var(--ok);border-color:rgba(74,154,99,.3)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
-.st{text-align:center}.st .e{font-size:28px}.st .v{font-size:32px;font-weight:900;color:var(--deep);margin:4px 0}.st .l{font-size:12.5px;color:var(--mute);font-weight:700}
-.bars{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;height:180px;margin-top:22px}
-.bw{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}
-.bar{width:100%;max-width:40px;min-height:5px;background:linear-gradient(180deg,var(--coral),var(--deep));border-radius:12px 12px 5px 5px;transition:height .8s;position:relative}
-.bar i{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font:800 11px inherit;font-style:normal;color:var(--deep)}
-.bl{font-size:11px;font-weight:700;color:var(--mute)}
-.foot{text-align:center;margin-top:22px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F48B94">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="وردة المخمل">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F48B94'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white'%3E🌸%3C/text%3E%3C/svg%3E">
+  <title>وردة المخمل | Bunny daily</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFDF7;
+      --card: #FFFFFF;
+      --pink: #FDF0F2;
+      --soft: #FBE3E7;
+      --coral: #F48B94;
+      --deep: #8E3B46;
+      --text: #4A3E3D;
+      --sub: #8C7B79;
+      --border: #F3E5E7;
+      --gold: #D4AF37;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
+    header {
+      background: var(--card);
+      border-bottom: 2px solid var(--border);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(244, 139, 148, 0.08);
+    }
+    .hi {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-mark {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 10px rgba(244, 139, 148, 0.3);
+    }
+    .logo-text b {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--deep);
+      display: block;
+    }
+    .logo-text small {
+      color: var(--coral);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--pink);
+      padding: 4px;
+      border-radius: 12px;
+    }
+    .tabs button {
+      border: 0;
+      background: none;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--sub);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tabs button.on {
+      background: var(--card);
+      color: var(--deep);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+    .pg { display: none; }
+    .pg.on { display: block; }
+    
+    /* Banner */
+    .hero {
+      background: linear-gradient(135deg, #FFF5F6 0%, #FDF0F2 100%);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text h2 {
+      font-size: 22px;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+    .hero-text p {
+      color: var(--sub);
+      font-size: 14px;
+    }
+    .hero-bunny {
+      font-size: 50px;
+    }
+
+    /* Task Table Blocks */
+    .block {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .block-head {
+      background: var(--pink);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .block-title {
+      font-weight: 800;
+      color: var(--deep);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .task-list {
+      padding: 8px 16px;
+    }
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 8px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .task-item:last-child { border-bottom: none; }
+    .task-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .task-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--coral);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .task-item.done .task-check {
+      background: var(--coral);
+      color: #fff;
+    }
+    .task-item.done .task-title {
+      text-decoration: line-through;
+      color: var(--sub);
+    }
+    .task-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    /* Sticker Grid */
+    .sticker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .sticker-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      font-size: 36px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+  </style>
 </head>
 <body>
-<header><div class="hi">
-  <div class="logo"><div class="mark" id="lm"></div><div><b>وردة المخمل</b><small>Bunny daily</small></div></div>
-  <nav class="tabs" id="tabs"></nav>
-</div></header>
-<main>
-<section class="pg on" id="p0">
-  <div class="thead"><div class="pcard"><h3 id="hmsg">مساء الخير يا جميلة</h3><p>مهامكِ مقسّمة حسب كتل الصلاة — أنجزي كل كتلة بركعة ذكر، واجمعي يوماً مثالياً.</p><div class="track"><div class="fill" id="pf"></div></div><div class="meta"><span id="pc"></span><span id="pp"></span></div></div><div id="bun"></div></div>
-  <div class="grid" id="blocks"></div>
-</section>
-<section class="pg" id="p1">
-  <h2>يوميّاتي <em>✿</em></h2><p class="lead">مساحة صغيرة لكتابة أفكارك ومشاعرك، تُحفظ على جهازك.</p>
-  <div class="jl"><div class="card"><div class="f"><label>العنوان</label><input type="text" id="jt" placeholder="عنوان اليوم"></div>
-  <div class="f"><label>كيف تشعرين؟</label><div class="moods" id="moods"></div></div>
-  <div class="f"><label>ما في قلبك</label><textarea id="jb" placeholder="اكتبي هنا..."></textarea></div>
-  <button class="btn" id="jsave">حفظ اليومية</button></div>
-  <div id="entries"></div></div>
-</section>
-<section class="pg" id="p2">
-  <h2>تحدّياتي <em>✿</em></h2><p class="lead">اضغطي على اليوم الذي أنجزتِه لتلوّنيه. خطوة صغيرة كل يوم.</p>
-  <div class="grid" id="chs"></div>
-</section>
-<section class="pg" id="p3">
-  <h2>مهام <em>مقترحة</em></h2><p class="lead">أفكار جاهزة، اضغطي «أضف» لتنتقل إلى مهامك اليومية.</p>
-  <div class="grid" id="sugs"></div>
-</section>
-<section class="pg" id="p4">
-  <h2>إحصائياتي <em>✿</em></h2><p class="lead">نظرة على إنجازاتك.</p>
-  <div class="stats" id="stats"></div>
-  <div class="card"><b>مهامك المنجزة في آخر 7 أيام</b><div class="bars" id="bars"></div></div>
-  <div class="foot"><button class="btn g" id="reset">مسح كل البيانات</button></div>
-</section>
-</main>
-<script>
-const $=s=>document.querySelector(s);
-const ls={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
-const FL=(c1,c2,n,sc,z)=>{let p='';for(let i=0;i<n;i++)p+=`<ellipse rx="${8*sc}" ry="${15*sc}" cy="${-15*sc}" fill="${c1}" ${i?`transform="rotate(${360/n*i})" opacity=".88"`:''}/>`;return `<svg width="${z}" height="${z}" viewBox="-34 -36 68 72" aria-hidden="true"><path d="M0 34L0 8" stroke="#7DA87B" stroke-width="3.4" stroke-linecap="round"/><path d="M0 24C-8 22 -13 16 -13 8C-5 10 0 16 0 24Z" fill="#A8CBA0"/><g>${p}<circle r="${7.5*sc}" fill="${c2}"/></g></svg>`};
-const BUN='<svg width="110" height="110" viewBox="0 0 100 100" fill="none" aria-hidden="true"><ellipse cx="50" cy="90" rx="30" ry="6" fill="#F48B94" opacity=".2"/><ellipse cx="36" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(-12 36 26)"/><ellipse cx="64" cy="26" rx="7" ry="20" fill="#FDF0F2" stroke="#F48B94" stroke-width="2.5" transform="rotate(12 64 26)"/><ellipse cx="50" cy="62" rx="24" ry="21" fill="#fff" stroke="#F48B94" stroke-width="2.5"/><circle cx="42" cy="58" r="2.6" fill="#5A3A41"/><circle cx="58" cy="58" r="2.6" fill="#5A3A41"/><path d="M46 68c2.5 2.5 5.5 2.5 8 0" stroke="#5A3A41" stroke-width="2.2" stroke-linecap="round"/><circle cx="35" cy="66" r="3.4" fill="#F48B94" opacity=".45"/><circle cx="65" cy="66" r="3.4" fill="#F48B94" opacity=".45"/></svg>';
-const CHK='<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19.3 5.9 20.6 7.2 9.7 18.1 3.4 11.9l1.3-1.3 5 4.9L19.3 5.9Z" fill="#fff"/></svg>';
-const TRS='<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 3a.9.9 0 0 1 .9-.9h6a.9.9 0 0 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM10 15.9a.9.9 0 0 1-1.8 0V10a.9.9 0 0 1 1.8 0v5.9ZM13.1 15c0 .5.4.9.9.9s.9-.4.9-.9v-5a.9.9 0 0 0-1.8 0v5ZM2.1 6a.9.9 0 0 1 .9-.9h18a.9.9 0 0 1 0 1.8h-1.2l-.9 11.8a2 2 0 0 1-2 1.9H7.1a2 2 0 0 1-2-1.9L4.2 6.9H3a.9.9 0 0 1-.9-.9Z"/></svg>';
-const BL=[{id:'fajr',n:'كتلة الفجر',h:'الصلاة 5:10 ص',i:'M12 3v2M5.6 5.6l1.4 1.4M3 12h2M18 12h2M17 7l1.4-1.4M7 17a5 5 0 0 1 10 0M4 20h16'},{id:'dhuhr',n:'كتلة الظهر',h:'الصلاة 12:15 م',i:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},{id:'asr',n:'كتلة العصر',h:'الصلاة 3:35 م',i:'M12 3v3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 12h2M18 12h2M12 17v4M7 21h10'},{id:'maghrib',n:'كتلة المغرب',h:'الصلاة 6:05 م',i:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM4 16h16M7 20h10M12 4v3'},{id:'isha',n:'كتلة العشاء',h:'الصلاة 7:30 م',i:'M20 13A8 8 0 1 1 11 4a6.5 6.5 0 0 0 9 9ZM17 4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7L17 4Z'}];
-const MOODS=['سعيدة','مرتاحة','ممتنّة','حزينة','متعبة'];
-const CH=[{id:'w',n:'شرب الماء',e:FL('#F48B94','#F6C66A',8,1,44),d:30,s:'8 أكواب يوميًا'},{id:'r',n:'القراءة',e:FL('#B79BD8','#8E6CC0',5,1,44),d:30,s:'10 دقائق كل يوم'},{id:'s',n:'رعاية الذات',e:FL('#F9B8BF','#FDF0F2',10,1,44),d:21,s:'شيء لطيف لنفسك'}];
-const SUG=[{n:'عناية',b:'fajr',l:['غسل الوجه وترطيبه','شرب كوب ماء دافئ','ترتيب السرير']},{n:'تطوّر',b:'dhuhr',l:['قراءة 10 صفحات','تعلّم كلمة جديدة','تدوين فكرة اليوم']},{n:'استرخاء',b:'isha',l:['المشي 15 دقيقة','كتابة 3 أشياء أشكر عليها','إطفاء الشاشات قبل النوم']}];
-const today=()=>new Date().toISOString().slice(0,10);
-let S;try{S=JSON.parse(ls.g('wm_app2')||'null')}catch(e){}
-if(!S)S={date:today(),tasks:{fajr:[{i:1,t:'صلاة الفجر في وقتها',d:0},{i:2,t:'شرب كوب ماء وذكر الصباح',d:0}],dhuhr:[{i:3,t:'قراءة 10 صفحات من كتاب',d:0}],asr:[],maghrib:[{i:4,t:'مشي 20 دقيقة',d:0}],isha:[{i:5,t:'تجهيز قائمة الغد',d:0}]},j:[],c:{},h:{}};
-BL.forEach(b=>{S.tasks[b.id]=S.tasks[b.id]||[]});
-const all=()=>[].concat(...BL.map(b=>S.tasks[b.id]));
-const save=()=>ls.s('wm_app2',JSON.stringify(S));
-if(S.date!==today()){S.h[S.date]=all().filter(t=>t.d).length;BL.forEach(b=>S.tasks[b.id].forEach(t=>t.d=0));S.date=today();save()}
-const esc=s=>{const d=document.createElement('div');d.textContent=s;return d.innerHTML};
-let mood=0;
-const TB=['يومي','يوميّاتي','تحدّياتي','مقترحات','إحصائيات'];
-$('#tabs').innerHTML=TB.map((t,i)=>`<button data-i="${i}">${t}</button>`).join('');
-function go(i){document.querySelectorAll('.pg').forEach((p,k)=>p.classList.toggle('on',k==i));document.querySelectorAll('.tabs button').forEach((b,k)=>b.classList.toggle('on',k==i));if(i==4)stats();scrollTo(0,0)}
-$('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)go(+b.dataset.i)};
-function day(){
-  const a=all(),d=a.filter(t=>t.d).length,p=a.length?Math.round(d/a.length*100):0,h=new Date().getHours();
-  $('#pf').style.width=p+'%';$('#pc').textContent=d+' من '+a.length+' مهام';$('#pp').textContent=p+'%';
-  $('#hmsg').textContent=h<12?'صباح الورد يا جميلة الجميلات':h<17?'نهاركِ سعيد يا جميلة':'مساء الخير يا جميلة';
-  $('#blocks').innerHTML=BL.map(b=>{const L=S.tasks[b.id]||[],n=L.filter(t=>t.d).length;
-    return `<div class="card block ${L.length&&n==L.length?'done':''}"><div class="bh"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${b.i}"/></svg></div><div><b>${b.n}</b><div class="tm">${b.h}</div></div><span>${n}/${L.length}</span></div>
-    ${L.map(t=>`<div class="task ${t.d?'d':''}"><div class="bx" data-k="${t.i}">${t.d?CHK:''}</div><div class="t" data-k="${t.i}">${esc(t.t)}</div><button class="x" data-x="${t.i}" aria-label="حذف">${TRS}</button></div>`).join('')||'<div class="empty" style="padding:12px;border:0">لا مهام بعد — أضيفي أول مهمة</div>'}
-    <div class="add"><input type="text" placeholder="مهمة جديدة لـ${b.n.replace('كتلة ','')}..." data-b="${b.id}"><button class="btn plus ab" data-a="${b.id}" aria-label="إضافة">＋</button></div></div>`}).join('');
-}
-function addTask(b,t){t=t.trim();if(!t)return;S.tasks[b].push({i:Date.now()+Math.random(),t,d:0});save();day()}
-$('#blocks').onclick=e=>{const k=e.target.closest('[data-k]'),x=e.target.closest('[data-x]'),a=e.target.closest('[data-a]');
-  if(k){all().forEach(t=>{if(t.i==k.dataset.k)t.d=t.d?0:1});save();day()}
-  else if(x){BL.forEach(b=>S.tasks[b.id]=S.tasks[b.id].filter(t=>t.i!=x.dataset.x));save();day()}
-  else if(a){addTask(a.dataset.a,a.previousElementSibling.value)}};
-$('#blocks').onkeydown=e=>{if(e.key=='Enter'&&e.target.dataset.b)addTask(e.target.dataset.b,e.target.value)};
-$('#moods').innerHTML=MOODS.map((m,i)=>`<button class="mood" data-m="${i}">${m}</button>`).join('');
-$('#moods').onclick=e=>{const b=e.target.closest('.mood');if(!b)return;mood=+b.dataset.m;document.querySelectorAll('.mood').forEach((x,i)=>x.classList.toggle('on',i==mood))};
-function jr(){$('#entries').innerHTML=S.j.length?S.j.map(e=>`<div class="card en"><span class="dt">${esc(e.d)} · ${esc(MOODS[e.m])}</span><h4>${esc(e.t||'بدون عنوان')}</h4><p>${esc(e.b)}</p><button class="x" data-j="${e.i}">✕</button></div>`).join(''):'<div class="empty">'+FL('#F48B94','#F6C66A',8,1,60)+'<br>لا توجد يوميات بعد.<br>اكتبي أول يومية لك.</div>'}
-$('#jsave').onclick=()=>{const t=$('#jt').value.trim(),b=$('#jb').value.trim();if(!t&&!b)return;S.j.unshift({i:Date.now(),t,b,m:mood,d:new Date().toLocaleDateString('ar',{day:'numeric',month:'long'})});$('#jt').value=$('#jb').value='';save();jr()};
-$('#entries').onclick=e=>{const x=e.target.closest('[data-j]');if(x){S.j=S.j.filter(v=>v.i!=x.dataset.j);save();jr()}};
-function chs(){$('#chs').innerHTML=CH.map(c=>{const D=S.c[c.id]||[],p=Math.round(D.length/c.d*100);
-  return `<div class="card ch"><h4>${c.e} ${c.n}</h4><div class="sub">${c.s} · ${c.d} يومًا</div><div class="track" style="margin:0"><div class="fill" style="width:${p}%"></div></div><div class="meta"><span>${D.length} من ${c.d}</span><span>${p}%</span></div>
-  <div class="days">${Array.from({length:c.d},(_,i)=>`<button class="dc ${D.includes(i+1)?'on':''}" data-c="${c.id}" data-n="${i+1}">${i+1}</button>`).join('')}</div><button class="btn g" data-r="${c.id}">إعادة البدء</button></div>`}).join('')}
-$('#chs').onclick=e=>{const d=e.target.closest('.dc'),r=e.target.closest('[data-r]');
-  if(d){const D=S.c[d.dataset.c]=S.c[d.dataset.c]||[],n=+d.dataset.n,i=D.indexOf(n);i<0?D.push(n):D.splice(i,1)}
-  else if(r){S.c[r.dataset.r]=[]}else return;save();chs()};
-function sug(){$('#sugs').innerHTML=SUG.map((g,gi)=>`<div class="card sg"><h4 style="display:flex;align-items:center;gap:8px">${FL('#F48B94','#F6C66A',6,.5,26)}${g.n}</h4>${g.l.map((t,i)=>{const has=S.tasks[g.b].some(x=>x.t==t);return `<div class="si"><span>${t}</span><button class="pill ${has?'ok':''}" data-g="${gi}" data-i="${i}">${has?'✓ أُضيفت':'＋ أضف'}</button></div>`}).join('')}</div>`).join('')}
-$('#sugs').onclick=e=>{const p=e.target.closest('.pill');if(!p)return;const g=SUG[p.dataset.g],t=g.l[p.dataset.i];if(!S.tasks[g.b].some(x=>x.t==t)){S.tasks[g.b].push({i:Date.now(),t,d:0});save();day();sug()}};
-function stats(){const a=all(),d=a.filter(t=>t.d).length,cd=Object.values(S.c).reduce((s,v)=>s+v.length,0),h={...S.h};h[today()]=d;
-  const dd=Object.values(h).reduce((s,v)=>s+v,0);
-  $('#stats').innerHTML=[[FL(
+
+  <header>
+    <div class="hi">
+      <div class="logo-area">
+        <div class="logo-mark">🌸</div>
+        <div class="logo-text">
+          <b>وردة المخمل</b>
+          <small>Bunny daily</small>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="on" onclick="sw('m')">المهام اليومية</button>
+        <button onclick="sw('s')">الستيكرات</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- صفحة المهام -->
+    <div id="pg-m" class="pg on">
+      <div class="hero">
+        <div class="hero-text">
+          <h2>مساء الخير يا جميلة 🌸</h2>
+          <p>مهامكِ مقسمة حسب كتل الصلاة – أنجزي كل كتلة بركعة ذكر، واجمعي يوماً مثالياً.</p>
+        </div>
+        <div class="hero-bunny">🐰</div>
+      </div>
+
+      <!-- كتلة الفجر -->
+      <div class="block">
+        <div class="block-head">
+          <span class="block-title">🌅 كتلة الفجر</span>
+        </div>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">صلاة الفجر وأذكار الصباح</span>
+            </div>
+          </div>
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">قراءة ورد القرآن الكريم</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- كتلة الظهر والعصر -->
+      <div class="block">
+        <div class="block-head">
+          <span class="block-title">☀️ كتلة الظهر والعصر</span>
+        </div>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">صلاة الظهر والسنن</span>
+            </div>
+          </div>
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">إنجاز مهام العمل / الدراسة</span>
+            </div>
+          </div>
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">صلاة العصر وأذكار المساء</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- كتلة المغرب والعشاء -->
+      <div class="block">
+        <div class="block-head">
+          <span class="block-title">🌙 كتلة المغرب والعشاء</span>
+        </div>
+        <div class="task-list">
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">صلاة المغرب والعشاء</span>
+            </div>
+          </div>
+          <div class="task-item" onclick="toggleTask(this)">
+            <div class="task-right">
+              <div class="task-check">✓</div>
+              <span class="task-title">وقت الاسترخاء والعناية بالذات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- صفحة الستيكرات -->
+    <div id="pg-s" class="pg">
+      <div class="hero">
+        <div class="hero-text">
+          <h2>مجموعة الستيكرات 🎀</h2>
+          <p>استمتعي بجمال الألوان والستيكرات اللطيفة في يومكِ.</p>
+        </div>
+      </div>
+      <div class="sticker-grid">
+        <div class="sticker-card">🐰</div>
+        <div class="sticker-card">🌸</div>
+        <div class="sticker-card">🌷</div>
+        <div class="sticker-card">🎀</div>
+        <div class="sticker-card">✨</div>
+        <div class="sticker-card">☕</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function sw(tab) {
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('on'));
+      document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+      if(tab === 'm') {
+        event.target.classList.add('on');
+        document.getElementById('pg-m').classList.add('on');
+      } else {
+        event.target.classList.add('on');
+        document.getElementById('pg-s').classList.add('on');
+      }
+    }
+
+    function toggleTask(el) {
+      el.classList.toggle('done');
+    }
+  </script>
+</body>
+</html>
